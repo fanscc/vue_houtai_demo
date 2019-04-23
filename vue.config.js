@@ -5,7 +5,7 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-function proxyObj(goMock, url, Rewrite) {
+function proxyFun(goMock, url, Rewrite) {
   if (goMock) {
     return {
       target: "http://localhost:3002",
@@ -24,10 +24,22 @@ function proxyObj(goMock, url, Rewrite) {
 }
 
 // eslint-disable-next-line no-unused-vars
-const VUE_APP_BASE_API = "http://www.baidu.com";
 const name = "vue Element Admin"; // page title
 const port = 8888; // dev port
 const url = "http://192.168.16.120:8080";
+// 用来判断是什么环境mock环境测走mock数据
+const Environment = process.env.environment;
+let proxyObj = {};
+if (Environment == "mock") {
+  proxyObj = {
+    "/user/login": proxyFun(true, url, "/login"),
+    "/user/info": proxyFun(true, url, "/info")
+  };
+} else {
+  proxyObj = {
+    "/user": proxyFun(false, url)
+  };
+}
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
   /**
@@ -49,11 +61,8 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: {
-      "/user/login": proxyObj(true, url, "/login"),
-      "/user/info": proxyObj(true, url, "/info")
-    },
-    after: require("./mock/index.js")
+    proxy: proxyObj,
+    after: Environment == "mock" ? require("./mock/index.js") : () => {}
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
