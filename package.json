@@ -17,6 +17,7 @@
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
     "screenfull": "4.2.0",
+    "svg-sprite-loader": "^4.1.3",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",
     "vue-baidu-map": "^0.21.20",
@@ -33,7 +34,12 @@
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "fs-jetpack": "^2.2.2",
+    "ip": "^1.1.5",
+    "isomorphic-fetch": "^2.2.1",
+    "json-server": "^0.14.2",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.11",
     "sass-loader": "^7.1.0",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "vue-template-compiler": "^2.5.21"
@@ -47,7 +53,10 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0,
+      "no-debugger": 0
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

@@ -12,6 +12,7 @@ export default {
     Default: "Default"
   },
   route: {
+    cky: "cky",
     AliIcons: "AliIcons",
     list: "list",
     Digitalanimation: "Digitalanimation",

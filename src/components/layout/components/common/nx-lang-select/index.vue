@@ -5,7 +5,10 @@
     @command="handleSetLanguage"
   >
     <div>
-      <nx-svg-icon class-name="international-icon" icon-class="language" />
+      <svg-icon
+        icon-class="language"
+        class-name="international-icon"
+      ></svg-icon>
     </div>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item command="zh" :disabled="language === 'zh'"
@@ -19,10 +22,8 @@
 </template>
 
 <script>
-import nxSvgIcon from "./svg-icon.vue";
 export default {
   name: "nx-lang-select",
-  components: { nxSvgIcon },
   computed: {
     language() {
       return this.$store.getters.language;

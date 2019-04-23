@@ -10,14 +10,14 @@
 
 <script>
 export default {
-  name: 'AppMain',
+  name: "AppMain",
   computed: {
     cachedViews() {
-      return this.$store.state.tagsView.cachedViews
+      return this.$store.state.tagsView.cachedViews;
     },
     key() {
-      return this.$route.fullPath
+      return this.$route.fullPath;
     }
   }
-}
+};
 </script>

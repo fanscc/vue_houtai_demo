@@ -12,14 +12,13 @@
       <el-tooltip effect="dark" content="全屏" placement="bottom">
         <nx-full-screen class="screenfull right-menu-item"></nx-full-screen>
       </el-tooltip>
-
       <!-- <lang-select class="international right-menu-item"></lang-select> -->
       <nx-lang-select class="international right-menu-item"></nx-lang-select>
 
-      <el-tooltip effect="dark" content="主题" placement="bottom">
-        <!-- <theme-picker class="theme-switch right-menu-item"></theme-picker> -->
-        <nx-skin class="theme-switch right-menu-item"></nx-skin>
-      </el-tooltip>
+      <!-- <el-tooltip effect="dark" content="主题" placement="bottom"> -->
+      <!-- <theme-picker class="theme-switch right-menu-item"></theme-picker> -->
+      <!-- <nx-skin class="theme-switch right-menu-item"></nx-skin> -->
+      <!-- </el-tooltip> -->
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
@@ -50,15 +49,15 @@ import nxBreadcrumb from "./common/nx-breadcrumb";
 import nxHamburger from "./common/nx-hamburger";
 import nxFullScreen from "./common/nx-full-screen";
 import nxLangSelect from "./common/nx-lang-select";
-import nxSkin from "./common/nx-skin";
+// import nxSkin from "./common/nx-skin";
 export default {
   name: "navBar",
   components: {
     nxBreadcrumb,
     nxHamburger,
     nxFullScreen,
-    nxLangSelect,
-    nxSkin
+    nxLangSelect
+    // nxSkin
   },
   computed: {
     ...mapGetters(["sidebar", "name", "avatar"])

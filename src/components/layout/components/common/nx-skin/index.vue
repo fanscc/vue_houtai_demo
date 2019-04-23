@@ -1,15 +1,11 @@
 <template>
   <div>
-    <!-- <el-select v-model="locale" size="small" style="width:100px">
-      <el-option v-for="(item,key,index) in langs" :key="index" :label="$t('locales.' + key)" :value="key">
-      </el-option>
-    </el-select> -->
     <el-dropdown
       @command="handleCommandSkin"
-      trigger="hover"
+      trigger="click"
       class="eldropdown"
     >
-      <span class="el-dropdown-link lang">{{ $t("navbar.theme") }}</span>
+      <span class="el-dropdown-link lang">主题</span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item
           v-for="(item, index) in skins"

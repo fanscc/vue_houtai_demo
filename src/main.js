@@ -5,12 +5,17 @@ import VCharts from "v-charts";
 import BaiduMap from "vue-baidu-map";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import "@/styles/index.scss";
+import "normalize.css/normalize.css";
 import locale from "element-ui/lib/locale/lang/en"; // lang i18n
 import App from "./App.vue";
 import router from "./router/index";
 import store from "./store";
 import i18n from "./lang";
+import "@/icons"; // icon
+
 import { global } from "@/global/global";
+import "@/permission";
 
 Vue.use(VCharts);
 Vue.use(ElementUI, { locale });
@@ -35,5 +40,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount("#app");

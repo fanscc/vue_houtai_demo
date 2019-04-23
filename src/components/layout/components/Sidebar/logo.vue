@@ -1,31 +1,22 @@
 <template>
   <div class="logo">
     <transition name="fade">
-      <span
-        v-if="isCollapse"
-        class="logo_title is-bold "
-        key="0"
-        :class="{ 'is-text': !type, 'is-img': type }"
-      >
-        <template v-if="type">
-          <img :src="website.logo" width="40" height="40" />
-        </template>
-        <template v-else>
-          {{ website.logo }}
+      <span v-if="isCollapse" class="logo_title is-bold" key="0">
+        <template>
+          12
         </template>
       </span>
     </transition>
     <transition-group name="fade">
       <template v-if="!isCollapse">
-        <span class="logo_title is-bold" key="1">{{ website.title }} </span>
-        <span class="logo_subtitle" key="2">{{ website.author }}</span>
+        <span class="logo_title is-bold" key="1">cc</span>
+        <span class="logo_subtitle" key="2">cky</span>
       </template>
     </transition-group>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   name: "logo",
   data() {
@@ -33,12 +24,7 @@ export default {
   },
   props: ["isCollapse"],
   created() {},
-  computed: {
-    ...mapGetters(["website"]),
-    type: function(val) {
-      return this.website.logo.indexOf("static") !== -1;
-    }
-  },
+  computed: {},
   methods: {}
 };
 </script>

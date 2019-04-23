@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="classObj">
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
       <navbar></navbar>
@@ -20,7 +20,16 @@ export default {
     AppMain,
     TagsView
   },
-  computed: {},
+  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar;
+    },
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened
+      };
+    }
+  },
   methods: {}
 };
 </script>

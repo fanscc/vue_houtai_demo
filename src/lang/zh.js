@@ -13,6 +13,7 @@ export default {
     Default: "默认"
   },
   route: {
+    cky: "曹大赛",
     AliIcons: "阿里图标",
     contextmenu: "右键菜单",
     simple: "基础",
