@@ -74,6 +74,43 @@ export const constantRouterMap = [
         meta: { title: "cky", icon: "barGraph" }
       }
     ]
+  },
+  // 地图
+  {
+    path: "/map",
+    component: Layout,
+    redirect: "/map/pointAccumulationMap",
+    name: "baidumap",
+    meta: {
+      title: "baidumap",
+      icon: "baidumap"
+    },
+    children: [
+      {
+        path: "pointMap",
+        name: "pointMap",
+        component: () => import("@/views/map/pointMap"),
+        meta: { title: "pointMap", icon: "pointMap" }
+      },
+      {
+        path: "cityLlistMap",
+        name: "cityLlistMap",
+        component: () => import("@/views/map/cityLlistMap"),
+        meta: { title: "cityLlistMap", icon: "cityLlistMap" }
+      },
+      {
+        path: "roadBookMap",
+        name: "roadBookMap",
+        component: () => import("@/views/map/roadBookMap"),
+        meta: { title: "roadBookMap", icon: "roadBookMap" }
+      },
+      {
+        path: "gpsMap",
+        name: "gpsMap",
+        component: () => import("@/views/map/gpsMap"),
+        meta: { title: "gpsMap", icon: "gpsMap" }
+      }
+    ]
   }
 ];
 
