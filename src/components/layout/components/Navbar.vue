@@ -1,16 +1,14 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
-    <nx-hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></nx-hamburger>
+    <nx-hamburger
+      class="hamburger-container"
+      :toggleClick="toggleSideBar"
+      :isActive="sidebar.opened"
+    ></nx-hamburger>
 
     <nx-breadcrumb class="breadcrumb-container"></nx-breadcrumb>
 
     <div class="right-menu">
-     <error-log class="errLog-container right-menu-item"></error-log>
-
-      <nx-github style="margin-top:2px" class="nx-help right-menu-item"></nx-github>
-      <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
-      <nx-help class="nx-help right-menu-item" />
-      <nx-top-lock style="cursor:pointer" class="nx-help"></nx-top-lock>
       <el-tooltip effect="dark" content="全屏" placement="bottom">
         <nx-full-screen class="screenfull right-menu-item"></nx-full-screen>
       </el-tooltip>
@@ -25,7 +23,10 @@
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
-          <img class="user-avatar" src="https://mgbq.github.io/nx-admin-site/home.png">
+          <img
+            class="user-avatar"
+            src="https://mgbq.github.io/nx-admin-site/home.png"
+          />
           <i class="el-icon-caret-bottom"></i>
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -34,11 +35,6 @@
               home
             </el-dropdown-item>
           </router-link>
-          <a target='_blank' href="https://github.com/mgbq/nx-admin/">
-            <el-dropdown-item>
-              github地址
-            </el-dropdown-item>
-          </a>
           <el-dropdown-item divided>
             <span @click="logout" style="display:block;">退出</span>
           </el-dropdown-item>
@@ -49,43 +45,35 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import ErrorLog from '@/components/ErrorLog'
-import nxTopLock from '@/components/nx-top-lock'
-import nxBreadcrumb from '@/components/nx-breadcrumb'
-import nxHamburger from '@/components/nx-hamburger'
-import nxHelp from '@/components/nx-help/index'
-import nxFullScreen from '@/components/nx-full-screen/index'
-import nxLangSelect from '@/components/nx-lang-select/index'
-import nxSkin from '@/components/nx-skin/index'
-import nxGithub from '@/components/nx-github/index'
+import { mapGetters } from "vuex";
+import nxBreadcrumb from "./common/nx-breadcrumb";
+import nxHamburger from "./common/nx-hamburger";
+import nxFullScreen from "./common/nx-full-screen";
+import nxLangSelect from "./common/nx-lang-select";
+import nxSkin from "./common/nx-skin";
 export default {
-  name: 'navBar',
+  name: "navBar",
   components: {
     nxBreadcrumb,
     nxHamburger,
-    nxHelp,
     nxFullScreen,
     nxLangSelect,
-    nxSkin,
-    nxTopLock,
-    nxGithub,
-    ErrorLog
+    nxSkin
   },
   computed: {
-    ...mapGetters(['sidebar', 'name', 'avatar'])
+    ...mapGetters(["sidebar", "name", "avatar"])
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch('ToggleSideBar')
+      this.$store.dispatch("ToggleSideBar");
     },
     logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload() // In order to re-instantiate the vue-router object to avoid bugs
-      })
+      // this.$store.dispatch("LogOut").then(() => {
+      //   location.reload(); // In order to re-instantiate the vue-router object to avoid bugs
+      // });
     }
   }
-}
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
